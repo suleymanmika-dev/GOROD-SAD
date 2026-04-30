@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчетность | БАНО «Город-САД-Избербаш»</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #1e5631; --secondary: #00a8a8; --accent: #ffcc00; --dark: #1a1a1a; }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { display: flex; flex-direction: column; font-family: 'Montserrat', sans-serif; background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)), url('bg.jpg') no-repeat center bottom fixed; background-size: cover; }
+        .content-wrapper { flex: 1 0 auto; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; background: rgba(255, 255, 255, 0.95) !important; backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .logo-area { display: flex; align-items: center; text-decoration: none; color: var(--primary); }
+        .logo-area img { height: 60px; margin-right: 15px; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; }
+        
+        .menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 2001; }
+        .bar { width: 25px; height: 3px; background: var(--primary); transition: 0.3s; }
+
+        .page-header { background: rgba(240, 240, 240, 0.85); padding: 50px 10%; text-align: center; backdrop-filter: blur(5px); }
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 10%; }
+        .doc-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 30px; border-radius: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .btn-doc { padding: 12px 25px; background: var(--secondary); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links { position: fixed; top: -100vh; left: 0; width: 100%; background: white; flex-direction: column; align-items: center; padding: 80px 0 40px; transition: 0.5s; z-index: 2000; }
+            .nav-links.active { top: 0; }
+            .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        }
+
+        footer { flex-shrink: 0; background: var(--dark); color: #ccc; padding: 50px 10%; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <nav>
+        <a href="index.html" class="logo-area">
+            <img src="logo.png" alt="Лого">
+            <div>ГОРОД-САД<br><small>ИЗБЕРБАШ</small></div>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <div class="nav-links" id="nav-list">
+            <a href="index.html">Главная</a>
+            <a href="programs.html">Программы</a>
+            <a href="reports.html" style="color: var(--secondary)">Отчетность</a>
+            <a href="contacts.html">Контакты</a>
+        </div>
+    </nav>
+    <div class="page-header">
+        <h1>Прозрачность и документы</h1>
+        <p>Мы открыты для общества и государства</p>
+    </div>
+    <div class="doc-grid">
+        <div class="doc-card">
+            <div><strong>Устав организации</strong><br><small>PDF-документ</small></div>
+            <a href="ustav.pdf" class="btn-doc" target="_blank">Открыть</a>
+        </div>
+        <div class="doc-card">
+            <div><strong>ИНН / ОГРН</strong><br><small>Регистрационные данные</small></div>
+            <a href="#" class="btn-doc">Скоро</a>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>БАНО «Город-САД-Избербаш» &copy; 2026</p>
+</footer>
+<script>
+    const btn = document.getElementById('mobile-menu');
+    const list = document.getElementById('nav-list');
+    if(btn && list) {
+        btn.onclick = function() {
+            btn.classList.toggle('active');
+            list.classList.toggle('active');
+        }
+    }
+</script>
+</body>
+</html>
